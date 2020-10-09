@@ -6,12 +6,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class SiteManager extends User {
 
     private String site;
-    private Site siteObj;
+    private String siteId;
 
-    public SiteManager(String id, String fName, String lName, String email, String password, String role, String site, Site siteObj) {
+    public SiteManager(String id, String fName, String lName, String email, String password, String role, String site, String siteId) {
         super(id, fName, lName, email, password, role);
         this.site = site;
-        this.siteObj = siteObj;
+        this.siteId = siteId;
     }
 
     public String getSite() {
@@ -20,5 +20,13 @@ public class SiteManager extends User {
 
     public void setSite(String site) {
         this.site = site;
+    }
+
+    public String getSiteId() {
+        return siteId;
+    }
+
+    public void setSiteId(String siteId) {
+        this.siteId = siteId;
     }
 }
