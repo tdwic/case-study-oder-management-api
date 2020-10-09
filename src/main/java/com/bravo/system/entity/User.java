@@ -1,4 +1,4 @@
-package com.bravo.system.model;
+package com.bravo.system.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
