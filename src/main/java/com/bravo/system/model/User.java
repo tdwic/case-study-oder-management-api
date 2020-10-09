@@ -13,6 +13,15 @@ public class User {
     private String password;
     private String role;
 
+    public User(String id, String fName, String lName, String email, String password, String role) {
+        this.id = id;
+        this.fName = fName;
+        this.lName = lName;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+
     public String getId() {
         return id;
     }
