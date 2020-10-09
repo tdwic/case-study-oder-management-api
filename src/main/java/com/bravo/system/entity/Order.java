@@ -1,5 +1,6 @@
 package com.bravo.system.entity;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
@@ -7,8 +8,8 @@ import java.util.Date;
 @Document(collection = "Order")
 public class Order {
 
+    @Id
     private String id;
-    private Product[] items;
     private String site;
     private float totalPrice;
     private Date dueDate;
@@ -22,9 +23,8 @@ public class Order {
     private String inquiry;
     private String inquiryReply;
 
-    public Order(String id, Product[] items, String site, float totalPrice, Date dueDate, Date orderDate, String orderStatus, String supplier, String supplierStatus, String approvelNote, String approvelManager, String deliveryNote, String inquiry, String inquiryReply) {
+    public Order(String id, String site, float totalPrice, Date dueDate, Date orderDate, String orderStatus, String supplier, String supplierStatus, String approvelNote, String approvelManager, String deliveryNote, String inquiry, String inquiryReply) {
         this.id = id;
-        this.items = items;
         this.site = site;
         this.totalPrice = totalPrice;
         this.dueDate = dueDate;
@@ -39,20 +39,13 @@ public class Order {
         this.inquiryReply = inquiryReply;
     }
 
+
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public Product[] getItems() {
-        return items;
-    }
-
-    public void setItems(Product[] items) {
-        this.items = items;
     }
 
     public String getSite() {
