@@ -1,5 +1,9 @@
 package com.bravo.system.model;
 
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "Supplier")
 public class Supplier extends User {
 
     private String company;

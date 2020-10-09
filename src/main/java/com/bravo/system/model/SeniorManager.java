@@ -2,6 +2,7 @@ package com.bravo.system.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document (collection = "SeniorManager")
 public class SeniorManager extends User{
 
     public SeniorManager(String id, String fName, String lName, String email, String password, String role) {
