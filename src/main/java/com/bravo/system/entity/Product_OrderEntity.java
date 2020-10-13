@@ -4,14 +4,14 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Product_Order")
-public class Product_Order {
+public class Product_OrderEntity {
 
     @Id
     private String id;
     private String orderID;
     private String productID;
 
-    public Product_Order(String id, String orderID, String productID) {
+    public Product_OrderEntity(String id, String orderID, String productID) {
         this.id = id;
         this.orderID = orderID;
         this.productID = productID;
