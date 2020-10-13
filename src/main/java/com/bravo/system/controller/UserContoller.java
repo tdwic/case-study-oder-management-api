@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.ServerEndpoint;
+import java.util.List;
 
 @RestController
 @CrossOrigin(value = "htttp://localhost:4200")
@@ -20,6 +21,7 @@ public class UserContoller {
     @Autowired
     private UserService userService;
 
+    //Post Methods
     @RequestMapping(value = "seniorManager",method = RequestMethod.POST)
     public SeniorManagerEntity NewSeniorManager(@RequestBody SeniorManager seniorManager){
         return userService.NewSeniorManager(seniorManager);
@@ -34,5 +36,22 @@ public class UserContoller {
     public SupplierEntity NewSupplier(@RequestBody Supplier supplier){
         return userService.NewSupplier(supplier);
     }
+    //Post Methods
 
+    //GET Methods
+    @RequestMapping(value = "supplier",method = RequestMethod.GET)
+    public List<SupplierEntity> GetAllSuppliers(){
+        return userService.GetAllSuppliers();
+    }
+
+    @RequestMapping(value = "procumentStaff",method = RequestMethod.GET)
+    public List<ProcumentStaffEntity> GetAllProcumentStaff(){
+        return userService.GetAllProcumentStaff();
+    }
+
+    @RequestMapping(value = "seniorManager",method = RequestMethod.GET)
+    public List<SeniorManagerEntity> GetAllSeniorManager(){
+        return userService.GetAllSeniorManagers();
+    }
+    //GET Methods
 }

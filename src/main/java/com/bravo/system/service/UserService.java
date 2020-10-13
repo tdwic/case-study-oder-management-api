@@ -12,6 +12,8 @@ import com.bravo.system.repository.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -24,6 +26,7 @@ public class UserService {
     @Autowired
     private SupplierRepository supplierRepository;
 
+    //Post Methods
     public SeniorManagerEntity NewSeniorManager(SeniorManager seniorManager){
 
         String id = seniorManager.getId();
@@ -66,6 +69,20 @@ public class UserService {
         return supplierRepository.save(supplierEntity);
 
     }
+    //Post Methods
 
+    //Get Methods
+    public List<SeniorManagerEntity> GetAllSeniorManagers(){
+        return seniorManagerRepository.findAll();
+    }
+
+    public List<ProcumentStaffEntity> GetAllProcumentStaff(){
+        return procumentStaffRepository.findAll();
+    }
+
+    public List<SupplierEntity> GetAllSuppliers(){
+        return supplierRepository.findAll();
+    }
+    //Get Methods
 
 }
