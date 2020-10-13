@@ -4,6 +4,7 @@ import com.bravo.system.entity.DefaultUserEntity;
 import com.bravo.system.model.ProcumentStaff;
 import com.bravo.system.model.SeniorManager;
 import com.bravo.system.model.Supplier;
+import com.bravo.system.model.UserValidity;
 import com.bravo.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -42,4 +43,12 @@ public class UserContoller {
         return userService.GetAllUsers();
     }
      //GET Methods
+
+    //Validate User
+    @RequestMapping(value = "validate",method = RequestMethod.POST)
+    public boolean ValidateUser(@RequestBody UserValidity userValidity){
+        return userService.ValidateUser(userValidity);
+    }
+    //Validate User
+
 }

@@ -5,6 +5,7 @@ import com.bravo.system.entity.UserEntity;
 import com.bravo.system.model.ProcumentStaff;
 import com.bravo.system.model.SeniorManager;
 import com.bravo.system.model.Supplier;
+import com.bravo.system.model.UserValidity;
 import com.bravo.system.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -92,5 +93,17 @@ public class UserService {
     }
     //GET all user
 
+    //Validate User
+    public boolean ValidateUser(UserValidity userValidity) {
+
+        DefaultUserEntity defaultUserEntity;
+        defaultUserEntity = userRepository.findByemail(userValidity.getUsername());
+
+        if (defaultUserEntity != null && defaultUserEntity.getPassword().equals(userValidity.getPassword())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
