@@ -4,7 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Site")
-public class Site {
+public class SiteEntity {
 
     @Id
     private String id;
@@ -12,7 +12,7 @@ public class Site {
     private String address;
     private String phoneNo;
 
-    public Site(String id, String name, String address, String phoneNo) {
+    public SiteEntity(String id, String name, String address, String phoneNo) {
         this.id = id;
         this.name = name;
         this.address = address;

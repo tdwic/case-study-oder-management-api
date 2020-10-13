@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 
 @Document(collection = "Order")
-public class Order {
+public class OrderEntity {
 
     @Id
     private String id;
@@ -23,7 +23,7 @@ public class Order {
     private String inquiry;
     private String inquiryReply;
 
-    public Order(String id, String site, float totalPrice, Date dueDate, Date orderDate, String orderStatus, String supplier, String supplierStatus, String approvelNote, String approvelManager, String deliveryNote, String inquiry, String inquiryReply) {
+    public OrderEntity(String id, String site, float totalPrice, Date dueDate, Date orderDate, String orderStatus, String supplier, String supplierStatus, String approvelNote, String approvelManager, String deliveryNote, String inquiry, String inquiryReply) {
         this.id = id;
         this.site = site;
         this.totalPrice = totalPrice;

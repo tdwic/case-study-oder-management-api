@@ -1,6 +1,6 @@
 package com.bravo.system.controller;
 
-import com.bravo.system.entity.User;
+import com.bravo.system.entity.UserEntity;
 import com.bravo.system.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,13 +17,13 @@ public class TestController {
     private TestService testService;
 
     @RequestMapping(value = "user" , method = RequestMethod.POST)
-    public User RegUser(@RequestBody User user){
+    public UserEntity RegUser(@RequestBody UserEntity userEntity){
         //System.out.println(user.getTestID());
-        return testService.NewUser(user);
+        return testService.NewUser(userEntity);
     }
 
     @RequestMapping(value = "user", method = RequestMethod.GET)
-    public List<User> GetAllUsers(){
+    public List<UserEntity> GetAllUsers(){
         return testService.gettAll();
     }
 

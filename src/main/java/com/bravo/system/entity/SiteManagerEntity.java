@@ -3,12 +3,12 @@ package com.bravo.system.entity;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "SiteManager")
-public class SiteManager extends User {
+public class SiteManagerEntity extends UserEntity {
 
     private String site;
     private String siteId;
 
-    public SiteManager(String id, String fName, String lName, String email, String password, String role, String site, String siteId) {
+    public SiteManagerEntity(String id, String fName, String lName, String email, String password, String role, String site, String siteId) {
         super(id, fName, lName, email, password, role);
         this.site = site;
         this.siteId = siteId;

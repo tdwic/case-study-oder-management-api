@@ -1,6 +1,6 @@
 package com.bravo.system.service;
 
-import com.bravo.system.entity.User;
+import com.bravo.system.entity.UserEntity;
 import com.bravo.system.repository.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,11 +13,11 @@ public class TestService {
     @Autowired
     private TestRepository testRepository;
 
-    public User NewUser(User user) {
-        return testRepository.save(user);
+    public UserEntity NewUser(UserEntity userEntity) {
+        return testRepository.save(userEntity);
     }
 
-    public List<User> gettAll(){
+    public List<UserEntity> gettAll(){
         return testRepository.findAll();
     }
 
