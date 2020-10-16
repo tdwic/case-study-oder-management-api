@@ -2,10 +2,14 @@ package com.bravo.system.service;
 
 import com.bravo.system.entity.OrderEntity;
 import com.bravo.system.entity.ProductEntity;
+import com.bravo.system.model.CodeGenerator;
 import com.bravo.system.model.Order;
+import com.bravo.system.repository.CodeGenRepository;
 import com.bravo.system.repository.OrderRepository;
 import com.bravo.system.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,9 +22,33 @@ public class OrderServices {
     private OrderRepository orderRepository;
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private CodeGenRepository codeGenRepository;
+
+
 
     //Post Methods
-    public boolean AddOrders(Order order){
+    public String AddOrders(Order order){
+
+        List<CodeGenerator> cd = codeGenRepository.findAll();
+        int id = cd.get(0).getValue();
+
+        int length = String.valueOf(id).length();
+        String code ="";
+        int codeval = id+1;
+       switch (length){
+
+           case 1 : code = "B0000" + id;
+                    break;
+           case 2 : code = "B000" + id;
+                    break;
+           case 3 : code = "B00" + id;
+                    break;
+           case 4 : code = "B0" + id;
+                     break;
+           case 5 : code = "B" + id;
+                    break;
+       }
 
         OrderEntity obj = new OrderEntity();
 
@@ -35,20 +63,27 @@ public class OrderServices {
         obj.setApprovelManager(order.getApprovelManager());
         obj.setDeliveryNote(order.getDeliveryNote());
         obj.setInquiry(order.getInquiry());
+        obj.setOrderId(codeval);
+        obj.setOrderNo(code);
 
 
         OrderEntity result =orderRepository.save(obj);
 
-        if(result.getId() != null || result.getId() != ""){
-            List<ProductEntity> a = productRepository.saveAll(order.getItems());
-            if(a.isEmpty()){
-                return false;
-            }else{
-                return true;
-            }
-        }
+        CodeGenerator incrementedVal=new CodeGenerator();
+        incrementedVal.setId(cd.get(0).getId());
+        incrementedVal.setValue(codeval);
+        codeGenRepository.save(incrementedVal);
 
-        return false;
+
+
+        if(result.getId() != null || result.getId() != ""){
+
+
+                return String.valueOf(code) ;
+
+        }
+        return "00";
+
 
     }
 

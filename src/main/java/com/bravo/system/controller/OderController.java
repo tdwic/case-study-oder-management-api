@@ -18,7 +18,7 @@ public class OderController {
     private OrderServices orderServices;
 
     @RequestMapping(value = "saveOrder" , method = RequestMethod.POST)
-    public boolean SaveNewOrder(@RequestBody Order order){
+    public String SaveNewOrder(@RequestBody Order order){
         //System.out.println(user.getTestID());
         return orderServices.AddOrders(order);
     }

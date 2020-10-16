@@ -22,6 +22,28 @@ public class OrderEntity {
     private String deliveryNote;
     private String inquiry;
     private String inquiryReply;
+    private int orderId;
+    private String orderNo;
+
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
+    }
+
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+
 
 //    public OrderEntity(String id, String site, float totalPrice, Date dueDate, Date orderDate, String orderStatus, String supplier, String supplierStatus, String approvelNote, String approvelManager, String deliveryNote, String inquiry, String inquiryReply) {
 //        this.id = id;
