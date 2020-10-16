@@ -1,7 +1,7 @@
 package com.bravo.system.repository;
 
 import com.bravo.system.entity.ProductEntity;
-import com.bravo.system.entity.SeniorManagerEntity;
+//import com.bravo.system.entity.SeniorManagerEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

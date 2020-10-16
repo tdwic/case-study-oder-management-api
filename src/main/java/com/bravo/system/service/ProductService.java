@@ -3,12 +3,12 @@ package com.bravo.system.service;
 
 import com.bravo.system.entity.ProductEntity;
 import com.bravo.system.entity.Product_OrderEntity;
-import com.bravo.system.entity.SeniorManagerEntity;
+//import com.bravo.system.entity.SeniorManagerEntity;
 import com.bravo.system.model.Product;
 import com.bravo.system.model.SeniorManager;
 import com.bravo.system.repository.ProductOderRepository;
 import com.bravo.system.repository.ProductRepository;
-import com.bravo.system.repository.SupplierRepository;
+//import com.bravo.system.repository.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
