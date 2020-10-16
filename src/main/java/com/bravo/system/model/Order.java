@@ -1,11 +1,13 @@
 package com.bravo.system.model;
+import com.bravo.system.entity.ProductEntity;
+
 import java.util.Date;
 import java.util.List;
 
 public class Order {
 
     private String id;
-    private List<Product> items;
+    private List<ProductEntity> items;
     private String site;
     private float totalPrice;
     private Date dueDate;
@@ -19,22 +21,22 @@ public class Order {
     private String inquiry;
     private String inquiryReply;
 
-    public Order(String id, List<Product> items, String site, float totalPrice, Date dueDate, Date orderDate, String orderStatus, String supplier, String supplierStatus, String approvelNote, String approvelManager, String deliveryNote, String inquiry, String inquiryReply) {
-        this.id = id;
-        this.items = items;
-        this.site = site;
-        this.totalPrice = totalPrice;
-        this.dueDate = dueDate;
-        this.orderDate = orderDate;
-        this.orderStatus = orderStatus;
-        this.supplier = supplier;
-        this.supplierStatus = supplierStatus;
-        this.approvelNote = approvelNote;
-        this.approvelManager = approvelManager;
-        this.deliveryNote = deliveryNote;
-        this.inquiry = inquiry;
-        this.inquiryReply = inquiryReply;
-    }
+//    public Order(String id, List<Product> items, String site, float totalPrice, Date dueDate, Date orderDate, String orderStatus, String supplier, String supplierStatus, String approvelNote, String approvelManager, String deliveryNote, String inquiry, String inquiryReply) {
+//        this.id = id;
+//        this.items = items;
+//        this.site = site;
+//        this.totalPrice = totalPrice;
+//        this.dueDate = dueDate;
+//        this.orderDate = orderDate;
+//        this.orderStatus = orderStatus;
+//        this.supplier = supplier;
+//        this.supplierStatus = supplierStatus;
+//        this.approvelNote = approvelNote;
+//        this.approvelManager = approvelManager;
+//        this.deliveryNote = deliveryNote;
+//        this.inquiry = inquiry;
+//        this.inquiryReply = inquiryReply;
+//    }
 
     public String getId() {
         return id;
@@ -44,11 +46,11 @@ public class Order {
         this.id = id;
     }
 
-    public List<Product> getItems() {
+    public List<ProductEntity> getItems() {
         return items;
     }
 
-    public void setItems(List<Product> items) {
+    public void setItems(List<ProductEntity> items) {
         this.items = items;
     }
 
