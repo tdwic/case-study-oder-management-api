@@ -23,21 +23,21 @@ public class OrderEntity {
     private String inquiry;
     private String inquiryReply;
 
-    public OrderEntity(String id, String site, float totalPrice, Date dueDate, Date orderDate, String orderStatus, String supplier, String supplierStatus, String approvelNote, String approvelManager, String deliveryNote, String inquiry, String inquiryReply) {
-        this.id = id;
-        this.site = site;
-        this.totalPrice = totalPrice;
-        this.dueDate = dueDate;
-        this.orderDate = orderDate;
-        this.orderStatus = orderStatus;
-        this.supplier = supplier;
-        this.supplierStatus = supplierStatus;
-        this.approvelNote = approvelNote;
-        this.approvelManager = approvelManager;
-        this.deliveryNote = deliveryNote;
-        this.inquiry = inquiry;
-        this.inquiryReply = inquiryReply;
-    }
+//    public OrderEntity(String id, String site, float totalPrice, Date dueDate, Date orderDate, String orderStatus, String supplier, String supplierStatus, String approvelNote, String approvelManager, String deliveryNote, String inquiry, String inquiryReply) {
+//        this.id = id;
+//        this.site = site;
+//        this.totalPrice = totalPrice;
+//        this.dueDate = dueDate;
+//        this.orderDate = orderDate;
+//        this.orderStatus = orderStatus;
+//        this.supplier = supplier;
+//        this.supplierStatus = supplierStatus;
+//        this.approvelNote = approvelNote;
+//        this.approvelManager = approvelManager;
+//        this.deliveryNote = deliveryNote;
+//        this.inquiry = inquiry;
+//        this.inquiryReply = inquiryReply;
+//    }
 
 
     public String getId() {
