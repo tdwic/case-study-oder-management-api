@@ -18,7 +18,7 @@ public class OderController {
     private OrderServices orderServices;
 
     @RequestMapping(value = "saveOrder" , method = RequestMethod.POST)
-    public boolean RegUser(@RequestBody Order order){
+    public boolean SaveNewOrder(@RequestBody Order order){
         //System.out.println(user.getTestID());
         return orderServices.AddOrders(order);
     }
@@ -28,7 +28,7 @@ public class OderController {
         return orderServices.GetOrders();
     }
 
-    @RequestMapping(value = "getOrderDetailsById", method = RequestMethod.GET)
+    @RequestMapping(value = "getOrderDetailsByOrderId", method = RequestMethod.GET)
     public Optional<OrderEntity> GetOrderById(String Id){
         return orderServices.GetOrderDetailsByOrderId(Id);
     }

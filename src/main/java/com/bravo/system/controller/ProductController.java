@@ -18,8 +18,8 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @RequestMapping(value = "saveOrder", method = RequestMethod.POST)
-    public boolean RegUser(@RequestBody Product order) {
+    @RequestMapping(value = "saveProduct", method = RequestMethod.POST)
+    public boolean saveproduct(@RequestBody Product order) {
         //System.out.println(user.getTestID());
         return productService.AddProducts(order);
     }
@@ -29,8 +29,8 @@ public class ProductController {
         return productService.GetProducts();
     }
 
-    @RequestMapping(value = "getOrderDetailsById", method = RequestMethod.GET)
-    public List<Product_OrderEntity> GetProductsByOrderId(String orderId) {
-        return productService.GetProductsByOrderId(orderId);
+    @RequestMapping(value = "getOrderDetailsById/{id}", method = RequestMethod.GET)
+    public List<Product_OrderEntity> GetProductsByOrderId(@PathVariable String id) {
+        return productService.GetProductsByOrderId(id);
     }
 }

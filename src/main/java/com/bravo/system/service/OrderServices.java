@@ -1,6 +1,7 @@
 package com.bravo.system.service;
 
 import com.bravo.system.entity.OrderEntity;
+import com.bravo.system.entity.ProductEntity;
 import com.bravo.system.model.Order;
 import com.bravo.system.repository.OrderRepository;
 import com.bravo.system.repository.ProductRepository;
@@ -15,6 +16,7 @@ public class OrderServices {
 
     @Autowired
     private OrderRepository orderRepository;
+    @Autowired
     private ProductRepository productRepository;
 
     //Post Methods
@@ -36,9 +38,16 @@ public class OrderServices {
 
 
         OrderEntity result =orderRepository.save(obj);
+
         if(result.getId() != null || result.getId() != ""){
-            productRepository.saveAll(order.getItems());
+            List<ProductEntity> a = productRepository.saveAll(order.getItems());
+            if(a.isEmpty()){
+                return false;
+            }else{
+                return true;
+            }
         }
+
         return false;
 
     }
