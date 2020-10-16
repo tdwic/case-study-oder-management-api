@@ -91,6 +91,9 @@ public class UserService {
     public List<DefaultUserEntity> GetAllUsers(){
         return userRepository.findAll();
     }
+    public List<DefaultUserEntity> GetAllSuppliers(){
+        return userRepository.findByrole("Supplier");
+    }
     //GET all user
 
     //Validate User

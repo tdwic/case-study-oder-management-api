@@ -42,6 +42,12 @@ public class UserContoller {
     public List<DefaultUserEntity> GetAllUser(){
         return userService.GetAllUsers();
     }
+
+    @RequestMapping(value = "allSuppliers",method = RequestMethod.GET)
+    public List<DefaultUserEntity> GetAllSuppliers(){
+        return userService.GetAllSuppliers();
+    }
+
      //GET Methods
 
     //Validate User
