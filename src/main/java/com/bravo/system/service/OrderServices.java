@@ -4,6 +4,7 @@ import com.bravo.system.entity.OrderEntity;
 import com.bravo.system.entity.ProductEntity;
 import com.bravo.system.model.CodeGenerator;
 import com.bravo.system.model.Order;
+import com.bravo.system.model.OrderReurnModel;
 import com.bravo.system.model.OrderUpdateModel;
 import com.bravo.system.repository.CodeGenRepository;
 import com.bravo.system.repository.OrderRepository;
@@ -19,17 +20,19 @@ import java.util.Optional;
 @Service
 public class OrderServices {
 
-    @Autowired
-    private OrderRepository orderRepository;
-    @Autowired
-    private ProductRepository productRepository;
-    @Autowired
-    private CodeGenRepository codeGenRepository;
+    private final OrderRepository orderRepository;
+    private final ProductRepository productRepository;
+    private final CodeGenRepository codeGenRepository;
 
+    public OrderServices(OrderRepository orderRepository, ProductRepository productRepository, CodeGenRepository codeGenRepository) {
+        this.orderRepository = orderRepository;
+        this.productRepository = productRepository;
+        this.codeGenRepository = codeGenRepository;
+    }
 
 
     //Post Methods
-    public String AddOrders(Order order){
+    public OrderReurnModel AddOrders(Order order){
 
         List<CodeGenerator> cd = codeGenRepository.findAll();
         int id = cd.get(0).getValue();
@@ -78,16 +81,16 @@ public class OrderServices {
         codeGenRepository.save(incrementedVal);
 
 
+        OrderReurnModel returnmodel = new OrderReurnModel();
 
         if(result.getId() != null || result.getId() != ""){
 
-
-                return String.valueOf(code) ;
+            returnmodel.setOrderNo(code);
+            return returnmodel;
 
         }
-        return "00";
-
-
+        returnmodel.setOrderNo("0000000");
+        return returnmodel;
     }
 
     public List<OrderEntity> GetOrders(){

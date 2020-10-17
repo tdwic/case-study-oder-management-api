@@ -3,6 +3,7 @@ package com.bravo.system.controller;
 import com.bravo.system.entity.OrderEntity;
 import com.bravo.system.entity.ProductEntity;
 import com.bravo.system.model.Order;
+import com.bravo.system.model.OrderReurnModel;
 import com.bravo.system.model.OrderUpdateModel;
 import com.bravo.system.service.OrderServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,15 @@ import java.util.Optional;
 
 @RequestMapping("/")
 public class OderController {
-    @Autowired
-    private OrderServices orderServices;
+
+    private final OrderServices orderServices;
+
+    public OderController(OrderServices orderServices) {
+        this.orderServices = orderServices;
+    }
 
     @RequestMapping(value = "saveOrder" , method = RequestMethod.POST)
-    public String SaveNewOrder(@RequestBody Order order){
+    public OrderReurnModel SaveNewOrder(@RequestBody Order order){
         //System.out.println(user.getTestID());
         return orderServices.AddOrders(order);
     }
