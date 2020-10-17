@@ -3,6 +3,7 @@ package com.bravo.system.controller;
 import com.bravo.system.entity.OrderEntity;
 import com.bravo.system.entity.ProductEntity;
 import com.bravo.system.model.Order;
+import com.bravo.system.model.OrderUpdateModel;
 import com.bravo.system.service.OrderServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -35,8 +36,8 @@ public class OderController {
     }
 
     @RequestMapping(value = "updateStatus" , method = RequestMethod.POST)
-    public boolean UpdateStatus(@RequestBody OrderEntity order){
-        return orderServices.UpdateStatus(order);
+    public boolean UpdateStatus(@RequestBody OrderUpdateModel model){
+        return orderServices.UpdateStatus(model);
     }
 
     @RequestMapping(value = "findByorderNo/{no}", method = RequestMethod.GET)
