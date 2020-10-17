@@ -32,6 +32,7 @@ public class ProductService {
         obj.setStatus(product.getStatus());
         obj.setSupplier(product.getSupplier());
         obj.setUnit(product.getUnit());
+        obj.setOrderNo(product.getOrderNo());
 
 
         ProductEntity result =productRepository.save(obj);
@@ -47,8 +48,8 @@ public class ProductService {
         return list;
     }
 
-    public List<Product_OrderEntity> GetProductsByOrderId(String orderId){
-        return productOderRepository.findAllByOrderID(orderId);
+    public List<ProductEntity> GetProductsByOrderNo(String orderNo){
+        return productRepository.findByOrderNo(orderNo);
     }
 
 

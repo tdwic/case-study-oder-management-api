@@ -24,7 +24,15 @@ public class OrderEntity {
     private String inquiryReply;
     private int orderId;
     private String orderNo;
+    private String siteManager;
 
+    public String getSiteManager() {
+        return siteManager;
+    }
+
+    public void setSiteManager(String siteManager) {
+        this.siteManager = siteManager;
+    }
 
     public void setOrderId(int orderId) {
         this.orderId = orderId;

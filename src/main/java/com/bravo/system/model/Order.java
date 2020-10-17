@@ -20,23 +20,15 @@ public class Order {
     private String deliveryNote;
     private String inquiry;
     private String inquiryReply;
+    private String siteManager;
 
-//    public Order(String id, List<Product> items, String site, float totalPrice, Date dueDate, Date orderDate, String orderStatus, String supplier, String supplierStatus, String approvelNote, String approvelManager, String deliveryNote, String inquiry, String inquiryReply) {
-//        this.id = id;
-//        this.items = items;
-//        this.site = site;
-//        this.totalPrice = totalPrice;
-//        this.dueDate = dueDate;
-//        this.orderDate = orderDate;
-//        this.orderStatus = orderStatus;
-//        this.supplier = supplier;
-//        this.supplierStatus = supplierStatus;
-//        this.approvelNote = approvelNote;
-//        this.approvelManager = approvelManager;
-//        this.deliveryNote = deliveryNote;
-//        this.inquiry = inquiry;
-//        this.inquiryReply = inquiryReply;
-//    }
+    public String getSiteManager() {
+        return siteManager;
+    }
+
+    public void setSiteManager(String siteManager) {
+        this.siteManager = siteManager;
+    }
 
     public String getId() {
         return id;
