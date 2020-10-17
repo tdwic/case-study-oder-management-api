@@ -7,7 +7,6 @@ import java.util.List;
 public class Order {
 
     private String id;
-    private List<ProductEntity> items;
     private String site;
     private float totalPrice;
     private Date dueDate;
@@ -36,14 +35,6 @@ public class Order {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public List<ProductEntity> getItems() {
-        return items;
-    }
-
-    public void setItems(List<ProductEntity> items) {
-        this.items = items;
     }
 
     public String getSite() {

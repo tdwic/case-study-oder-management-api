@@ -4,6 +4,7 @@ import com.bravo.system.entity.OrderEntity;
 import com.bravo.system.entity.ProductEntity;
 import com.bravo.system.model.CodeGenerator;
 import com.bravo.system.model.Order;
+import com.bravo.system.model.OrderUpdateModel;
 import com.bravo.system.repository.CodeGenRepository;
 import com.bravo.system.repository.OrderRepository;
 import com.bravo.system.repository.ProductRepository;
@@ -98,5 +99,23 @@ public class OrderServices {
 
         return orderRepository.findById(id);
 
+    }
+
+    public boolean UpdateStatus(OrderUpdateModel model){
+
+         OrderEntity oe =orderRepository.findByOrderNo(model.getOrderno());
+         oe.setOrderStatus(model.getStatus());
+         OrderEntity or = orderRepository.save(oe);
+
+        if(or.getId() != null || or.getId() != ""){
+            return true ;
+        }
+
+        return false;
+
+    }
+
+    public OrderEntity FindbyOderNo(String orderno){
+       return  orderRepository.findByOrderNo(orderno);
     }
 }
