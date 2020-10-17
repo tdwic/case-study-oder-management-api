@@ -11,6 +11,8 @@ public class Product {
     private int status;
 
 
+    private String orderNo;
+
 //    public Product(String id, String name, String[] unit, String quantity, String price, String supplier) {
 //        this.id = id;
 //        this.name = name;
@@ -19,6 +21,14 @@ public class Product {
 //        this.price = price;
 //        this.supplier = supplier;
 //    }
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
+    }
 
     public String getId() {
         return id;

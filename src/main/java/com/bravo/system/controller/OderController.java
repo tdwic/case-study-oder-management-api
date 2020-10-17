@@ -30,7 +30,7 @@ public class OderController {
 
     @RequestMapping(value = "getOrderDetailsByOrderId", method = RequestMethod.GET)
     public Optional<OrderEntity> GetOrderById(String Id){
-        return orderServices.GetOrderDetailsByOrderId(Id);
+        return orderServices.GetOrderDetailsByOrderNo(Id);
     }
 
 }

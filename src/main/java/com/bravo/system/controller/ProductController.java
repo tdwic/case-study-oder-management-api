@@ -29,8 +29,8 @@ public class ProductController {
         return productService.GetProducts();
     }
 
-    @RequestMapping(value = "getOrderDetailsById/{id}", method = RequestMethod.GET)
-    public List<Product_OrderEntity> GetProductsByOrderId(@PathVariable String id) {
-        return productService.GetProductsByOrderId(id);
+    @RequestMapping(value = "getOrderDetailsByNo/{id}", method = RequestMethod.GET)
+    public List<ProductEntity> GetProductsByOrderId(@PathVariable String id) {
+        return productService.GetProductsByOrderNo(id);
     }
 }

@@ -36,6 +36,8 @@ public class OrderServices {
         int length = String.valueOf(id).length();
         String code ="";
         int codeval = id+1;
+
+
        switch (length){
 
            case 1 : code = "B0000" + id;
@@ -65,7 +67,7 @@ public class OrderServices {
         obj.setInquiry(order.getInquiry());
         obj.setOrderId(codeval);
         obj.setOrderNo(code);
-
+        obj.setSiteManager(order.getSiteManager());
 
         OrderEntity result =orderRepository.save(obj);
 
@@ -92,7 +94,7 @@ public class OrderServices {
         return list;
     }
 
-    public Optional<OrderEntity> GetOrderDetailsByOrderId(String id){
+    public Optional<OrderEntity> GetOrderDetailsByOrderNo(String id){
 
         return orderRepository.findById(id);
 

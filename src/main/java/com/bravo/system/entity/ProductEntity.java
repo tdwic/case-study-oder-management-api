@@ -13,6 +13,16 @@ public class ProductEntity {
     private String quantity;
     private String price;
     private String supplier;
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    private String orderNo;
     private int status;
 
 
@@ -25,6 +35,7 @@ public class ProductEntity {
 //        this.supplier = supplier;
 //        this.status = status;
 //    }
+
 
     public String getId() {
         return id;
