@@ -99,4 +99,19 @@ public class OrderServices {
         return orderRepository.findById(id);
 
     }
+
+    public boolean UpdateStatus(OrderEntity order){
+
+        OrderEntity or = orderRepository.save(order);
+        if(or.getId() != null || or.getId() != ""){
+            return true ;
+        }
+
+        return false;
+
+    }
+
+    public OrderEntity FindbyOderNo(String orderno){
+       return  orderRepository.findByOrderNo(orderno);
+    }
 }
