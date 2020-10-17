@@ -1,10 +1,7 @@
 package com.bravo.system.controller;
 
 import com.bravo.system.entity.DefaultUserEntity;
-import com.bravo.system.model.ProcumentStaff;
-import com.bravo.system.model.SeniorManager;
-import com.bravo.system.model.Supplier;
-import com.bravo.system.model.UserValidity;
+import com.bravo.system.model.*;
 import com.bravo.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +32,11 @@ public class UserContoller {
         return userService.NewSupplier(supplier);
     }
 
+    @RequestMapping(value = "siteManager",method = RequestMethod.POST)
+    public DefaultUserEntity NewSupplier(@RequestBody SiteManager siteManager){
+        return userService.NewSiteManager(siteManager);
+    }
+
     //Post Methods
 
     //GET Methods
@@ -46,6 +48,11 @@ public class UserContoller {
     @RequestMapping(value = "allSuppliers",method = RequestMethod.GET)
     public List<DefaultUserEntity> GetAllSuppliers(){
         return userService.GetAllSuppliers();
+    }
+
+    @RequestMapping(value = "allSiteManagers",method = RequestMethod.GET)
+    public List<DefaultUserEntity> GetAllSiteManagers(){
+        return userService.GetAllSiteManagers();
     }
 
      //GET Methods

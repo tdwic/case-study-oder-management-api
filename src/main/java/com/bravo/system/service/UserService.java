@@ -2,10 +2,7 @@ package com.bravo.system.service;
 
 import com.bravo.system.entity.DefaultUserEntity;
 import com.bravo.system.entity.UserEntity;
-import com.bravo.system.model.ProcumentStaff;
-import com.bravo.system.model.SeniorManager;
-import com.bravo.system.model.Supplier;
-import com.bravo.system.model.UserValidity;
+import com.bravo.system.model.*;
 import com.bravo.system.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -85,6 +82,23 @@ public class UserService {
 
     }
 
+    public DefaultUserEntity NewSiteManager(SiteManager siteManager){
+        TempUser tempUser = new TempUser();
+
+        tempUser.id = siteManager.getId();
+        tempUser.fName = siteManager.getfName();
+        tempUser.lName = siteManager.getlName();
+        tempUser.email = siteManager.getEmail();
+        tempUser.password = siteManager.getPassword();
+        tempUser.role = siteManager.getRole();
+        tempUser.company = "";
+        tempUser.site = siteManager.getSite();
+
+        DefaultUserEntity defaultUserEntity = new DefaultUserEntity(tempUser.id,tempUser.fName,tempUser.lName,tempUser.email,tempUser.password,tempUser.role,tempUser.company,tempUser.site);
+        return userRepository.save(defaultUserEntity);
+
+    }
+
     //Post Methods
 
     //GET all user
@@ -93,6 +107,9 @@ public class UserService {
     }
     public List<DefaultUserEntity> GetAllSuppliers(){
         return userRepository.findByrole("Supplier");
+    }
+    public List<DefaultUserEntity> GetAllSiteManagers(){
+        return userRepository.findByrole("SiteManager");
     }
     //GET all user
 
