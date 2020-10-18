@@ -21,6 +21,7 @@ public class ProductController {
     @RequestMapping(value = "saveProduct", method = RequestMethod.POST)
     public boolean saveproduct(@RequestBody Product order) {
         //System.out.println(user.getTestID());
+
         return productService.AddProducts(order);
     }
 

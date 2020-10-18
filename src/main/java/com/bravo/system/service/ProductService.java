@@ -16,40 +16,55 @@ import java.util.List;
 
 @Service
 public class ProductService {
+    //Injecting dependancies using Autowired
     @Autowired
     private ProductRepository productRepository;
     private ProductOderRepository productOderRepository;
 
-    //Post Methods
+   //Add products
     public boolean AddProducts(Product product){
+        try {
+            ProductEntity obj = new ProductEntity();
 
-        ProductEntity obj = new ProductEntity();
-
-        obj.setId(product.getId());
-        obj.setName(product.getName());
-        obj.setPrice(product.getPrice());
-        obj.setQuantity(product.getQuantity());
-        obj.setStatus(product.getStatus());
-        obj.setSupplier(product.getSupplier());
-        obj.setUnit(product.getUnit());
-        obj.setOrderNo(product.getOrderNo());
+            obj.setId(product.getId());
+            obj.setName(product.getName());
+            obj.setPrice(product.getPrice());
+            obj.setQuantity(product.getQuantity());
+            obj.setStatus(product.getStatus());
+            obj.setSupplier(product.getSupplier());
+            obj.setUnit(product.getUnit());
+            obj.setOrderNo(product.getOrderNo());
 
 
-        ProductEntity result =productRepository.save(obj);
-        if(result.getId() != null || result.getId() == ""){
-            return true;
+            ProductEntity result = productRepository.save(obj);
+            if (result.getId() != null || result.getId() == "") {
+                return true;
+            }
+            return false;
+        }catch(Exception e){
+            return false;
         }
-        return false;
+
 
     }
 
+    //get all products
     public List<ProductEntity> GetProducts(){
+        try {
        List<ProductEntity> list = productRepository.findAll();
         return list;
+        }catch(Exception e){
+            return null;
+        }
     }
 
+    //get products according to orderno
     public List<ProductEntity> GetProductsByOrderNo(String orderNo){
+        try {
         return productRepository.findByOrderNo(orderNo);
+        }catch(Exception e){
+            return null;
+        }
     }
 
 
