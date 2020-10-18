@@ -4,7 +4,11 @@ import com.bravo.system.entity.OrderEntity;
 import com.bravo.system.entity.ProductEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface OrderRepository extends MongoRepository<OrderEntity, String> {
+import java.util.List;
 
+public interface OrderRepository extends MongoRepository<OrderEntity, String> {
+ OrderEntity findByOrderNo(String OrderNo);
+ List<OrderEntity> findAllByOrderStatusIs(String orderStatus);
+ List<OrderEntity> findAllByOrderStatusIsNot(String orderStatus);
 
 }
