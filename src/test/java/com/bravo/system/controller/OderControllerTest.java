@@ -115,17 +115,9 @@ public class OderControllerTest extends AbstractTest{
         }
     }
 
-    @Test
-    public void getOrderById() {
-    }
-
-    @Test
-    public void updateStatus() {
-    }
-
-    @Test
-    public void findByorderNo() {
-    }
+    /**
+     * Unit test to get the Pending Orders
+     */
 
     @Test
     public void getPendingOrders() {
@@ -153,11 +145,74 @@ public class OderControllerTest extends AbstractTest{
         }
     }
 
+    /**
+     * Unit Test for getCompletedOrders
+     */
     @Test
     public void getCompletedOrders() {
+        try {
+            String uri = "/getCompletedOrders";
+            MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(uri)
+                    .accept(MediaType.APPLICATION_JSON_VALUE)).andReturn();
+
+
+            int status = mvcResult.getResponse().getStatus();
+            assertEquals(200, status);
+            String content = mvcResult.getResponse().getContentAsString();
+            Order[] order = super.mapFromJson(content, Order[].class);
+            assertTrue(order.length > 0);
+
+        }catch(UnsupportedEncodingException e){
+            e.printStackTrace();
+
+        }catch(IOException e){
+            e.printStackTrace();
+
+        } catch(Exception e){
+            e.printStackTrace();
+
+        }
     }
+
+    /**
+     * Unit Test for getUnCompleted Orders
+     */
 
     @Test
     public void getUnCompletedOrders() {
+        try {
+            String uri = "/getUnCompletedOrders";
+            MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(uri)
+                    .accept(MediaType.APPLICATION_JSON_VALUE)).andReturn();
+
+
+            int status = mvcResult.getResponse().getStatus();
+            assertEquals(200, status);
+            String content = mvcResult.getResponse().getContentAsString();
+            Order[] order = super.mapFromJson(content, Order[].class);
+            assertTrue(order.length > 0);
+
+        }catch(UnsupportedEncodingException e){
+            e.printStackTrace();
+
+        }catch(IOException e){
+            e.printStackTrace();
+
+        } catch(Exception e){
+            e.printStackTrace();
+
+        }
+    }
+
+    @Test
+    public void getOrderById() {
+    }
+
+    @Test
+    public void updateStatus() {
+    }
+
+    @Test
+    public void findByorderNo() {
     }
 }
