@@ -1,9 +1,7 @@
 package com.bravo.system.controller;
 
 import com.bravo.system.entity.OrderEntity;
-import com.bravo.system.model.Order;
-import com.bravo.system.model.OrderReurnModel;
-import com.bravo.system.model.OrderUpdateModel;
+import com.bravo.system.model.*;
 import com.bravo.system.service.OrderServices;
 import org.springframework.web.bind.annotation.*;
 
@@ -62,5 +60,16 @@ public class OderController {
     public List<OrderEntity> GetUnCompletedOrders(){
         return orderServices.GetUnCompltedOrders();
     }
+
+    @RequestMapping(value = "saveFinalOrder" , method = RequestMethod.POST)
+    public boolean SaveFinalOrder(@RequestBody FinalOrderSave model){
+        return orderServices.SaveFinalOrder(model);
+    }
+
+    @RequestMapping(value = "saveInquiry" , method = RequestMethod.POST)
+    public boolean SaveInquiry(@RequestBody InquiryModel model){
+        return orderServices.SaveInquiry(model);
+    }
+
 }
 
