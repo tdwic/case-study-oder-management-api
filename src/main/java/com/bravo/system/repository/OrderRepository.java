@@ -9,5 +9,6 @@ import java.util.List;
 public interface OrderRepository extends MongoRepository<OrderEntity, String> {
  OrderEntity findByOrderNo(String OrderNo);
  List<OrderEntity> findAllByOrderStatusIs(String orderStatus);
+ List<OrderEntity> findAllByOrderStatusIsNot(String orderStatus);
 
 }
