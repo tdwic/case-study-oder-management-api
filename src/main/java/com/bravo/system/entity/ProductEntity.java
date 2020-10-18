@@ -26,15 +26,7 @@ public class ProductEntity {
     private int status;
 
 
-//    public ProductEntity(String id, String name, String[] unit, String quantity, String price, String supplier, int status) {
-//        this.id = id;
-//        this.name = name;
-//        this.unit = unit;
-//        this.quantity = quantity;
-//        this.price = price;
-//        this.supplier = supplier;
-//        this.status = status;
-//    }
+
 
 
     public String getId() {
@@ -60,7 +52,6 @@ public class ProductEntity {
     public void setUnit(int unit) {
         this.unit = unit;
     }
-
 
     public String getQuantity() {
         return quantity;
