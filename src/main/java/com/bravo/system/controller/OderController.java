@@ -2,9 +2,7 @@ package com.bravo.system.controller;
 
 import com.bravo.system.entity.OrderEntity;
 import com.bravo.system.entity.ProductEntity;
-import com.bravo.system.model.Order;
-import com.bravo.system.model.OrderReurnModel;
-import com.bravo.system.model.OrderUpdateModel;
+import com.bravo.system.model.*;
 import com.bravo.system.service.OrderServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -48,6 +46,16 @@ public class OderController {
     @RequestMapping(value = "findByorderNo/{no}", method = RequestMethod.GET)
     public OrderEntity findByorderNo(@PathVariable String no) {
         return orderServices.FindbyOderNo(no);
+    }
+
+    @RequestMapping(value = "saveFinalOrder" , method = RequestMethod.POST)
+    public boolean SaveFinalOrder(@RequestBody OrderFinalUpdateModel model){
+        return orderServices.SaveFinalOrder(model);
+    }
+
+    @RequestMapping(value = "saveInquiryDetails" , method = RequestMethod.POST)
+    public boolean SaveInquiry(@RequestBody InquiryModel model){
+        return orderServices.SaveInquiryDetails(model);
     }
 
 }

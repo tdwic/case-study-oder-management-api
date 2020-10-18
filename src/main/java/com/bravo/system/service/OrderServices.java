@@ -2,10 +2,7 @@ package com.bravo.system.service;
 
 import com.bravo.system.entity.OrderEntity;
 import com.bravo.system.entity.ProductEntity;
-import com.bravo.system.model.CodeGenerator;
-import com.bravo.system.model.Order;
-import com.bravo.system.model.OrderReurnModel;
-import com.bravo.system.model.OrderUpdateModel;
+import com.bravo.system.model.*;
 import com.bravo.system.repository.CodeGenRepository;
 import com.bravo.system.repository.OrderRepository;
 import com.bravo.system.repository.ProductRepository;
@@ -121,4 +118,30 @@ public class OrderServices {
     public OrderEntity FindbyOderNo(String orderno){
        return  orderRepository.findByOrderNo(orderno);
     }
+
+    public boolean SaveFinalOrder(OrderFinalUpdateModel model){
+        OrderEntity oe =orderRepository.findByOrderNo(model.getOrderNo());
+        oe.setTotalPrice(model.getTotalPrice());
+        oe.setSupplier(model.getSupplier());
+        OrderEntity or = orderRepository.save(oe);
+
+        if(or.getId() != null || or.getId() != ""){
+            return true ;
+        }
+
+        return false;
+    }
+
+    public boolean SaveInquiryDetails(InquiryModel model){
+        OrderEntity oe =orderRepository.findByOrderNo(model.getOrderNo());
+        oe.setInquiry(model.getInquiry());
+        OrderEntity or = orderRepository.save(oe);
+
+        if(or.getId() != null || or.getId() != ""){
+            return true ;
+        }
+
+        return false;
+    }
+
 }
