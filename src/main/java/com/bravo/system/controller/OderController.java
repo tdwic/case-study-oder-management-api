@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:3000")
 
 @RequestMapping("/")
 public class OderController {
@@ -50,5 +50,9 @@ public class OderController {
         return orderServices.FindbyOderNo(no);
     }
 
+    @RequestMapping(value = "getPendingOrders", method = RequestMethod.GET)
+    public List<OrderEntity> GetPendingOrders(){
+        return orderServices.GetPendingOrders();
+    }
 }
 

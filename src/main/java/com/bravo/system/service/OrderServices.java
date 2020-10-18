@@ -121,4 +121,9 @@ public class OrderServices {
     public OrderEntity FindbyOderNo(String orderno){
        return  orderRepository.findByOrderNo(orderno);
     }
+
+    public List<OrderEntity> GetPendingOrders()
+    {
+       return orderRepository.findAllByOrderStatusIs("pending");
+    }
 }
