@@ -126,4 +126,14 @@ public class OrderServices {
     {
        return orderRepository.findAllByOrderStatusIs("pending");
     }
+
+    public List<OrderEntity> GetCompltedOrders()
+    {
+        return orderRepository.findAllByOrderStatusIs("completed");
+    }
+
+    public List<OrderEntity> GetUnCompltedOrders()
+    {
+        return orderRepository.findAllByOrderStatusIsNot("completed");
+    }
 }

@@ -1,12 +1,10 @@
 package com.bravo.system.controller;
 
 import com.bravo.system.entity.OrderEntity;
-import com.bravo.system.entity.ProductEntity;
 import com.bravo.system.model.Order;
 import com.bravo.system.model.OrderReurnModel;
 import com.bravo.system.model.OrderUpdateModel;
 import com.bravo.system.service.OrderServices;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -53,6 +51,16 @@ public class OderController {
     @RequestMapping(value = "getPendingOrders", method = RequestMethod.GET)
     public List<OrderEntity> GetPendingOrders(){
         return orderServices.GetPendingOrders();
+    }
+
+    @RequestMapping(value = "getCompletedOrders", method = RequestMethod.GET)
+    public List<OrderEntity> GetCompletedOrders(){
+        return orderServices.GetCompltedOrders();
+    }
+
+    @RequestMapping(value = "getUnCompletedOrders", method = RequestMethod.GET)
+    public List<OrderEntity> GetUnCompletedOrders(){
+        return orderServices.GetUnCompltedOrders();
     }
 }
 
